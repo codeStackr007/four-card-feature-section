@@ -159,6 +159,7 @@ a:focus {
   max-width: 21.875rem;
   height: auto;
   width: 100%;
+  color: var(--Grey-400);
   background-color: var(--White);
   border-radius: 0.3125rem;
   padding: 2rem;
