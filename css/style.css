@@ -82,32 +82,7 @@ img {
 /* Focus State for Links */
 a:focus {
   outline: 2px solid var(--Grey-500);
-  border-radius: 3px;
-}
-
-/* ====================================
-   ## FOOTER
-   ==================================== */
-/* Attribution Text */
-.attribution {
-  text-align: center;
-  padding: 1rem 0;
-  margin-top: auto;
-  font-size: 13px;
-  color: var(--Grey-400);
-  font-weight: var(--font-weight-regular);
-  transition: color 0.3s ease-in-out;
-}
-
-/* Attribution Links */
-.attribution a {
-  color: var(--Grey-400);
-  text-decoration: underline;
-  font-weight: var(--font-weight-semibold);
-}
-
-.attribution a:hover {
-  color: var(--Grey-500);
+  border-radius: 0.2rem;
 }
 
 /* ====================================
@@ -134,18 +109,18 @@ a:focus {
 
 .header__subtitle {
   font-weight: var(--font-weight-semibold);
-  margin-bottom: 10px;
+  margin-bottom: 0.67rem;
 }
 
 /* Header Description Paragraph */
 .header__description {
   color: var(--Grey-500);
-  max-width: 500px;
+  max-width: 33.33rem;
   text-align: center;
   font-weight: var(--font-weight-regular);
 }
 
-/* Card Grid Layout */
+/* Card Grid Layout - Default Mobile First */
 .cards {
   display: flex;
   flex-wrap: wrap;
@@ -171,13 +146,22 @@ a:focus {
   overflow: hidden;
 }
 
-.cards__center {
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
+/* Card Description Paragraph */
+.card__description {
+  font-size: 0.93rem;
+  color: var(--Grey-400);
+  max-width: 20rem;
+  margin: 0.67rem 0 1.33rem 0;
 }
 
-/* Individual Card Variations with borders */
+/* Card Icon Positioning */
+.card__icon {
+  width: 3.73rem;
+  display: block;
+  margin: 1.6rem 0 1.33rem auto;
+}
+
+/* Card Color Variations with Top Borders */
 .card--supervisor {
   border-top: 4px solid var(--Cyan);
 }
@@ -194,55 +178,110 @@ a:focus {
   border-top: 4px solid var(--Orange);
 }
 
-/* Card Hover Effects */
+/* Card Hover Effects with Color-Themed Shadows */
 .card--supervisor:hover {
-  box-shadow: 0 12px 20px hsla(180, 62%, 55%, 0.3);
-  transform: translateY(-2px);
+  box-shadow: 0 0.8rem 1.33rem hsla(180, 62%, 55%, 0.3);
+  transform: translateY(-0.13rem);
 }
 
 .card--team-builder:hover {
-  box-shadow: 0 12px 20px hsla(0, 78%, 62%, 0.29);
-  transform: translateY(-2px);
+  box-shadow: 0 0.8rem 1.33rem hsla(0, 78%, 62%, 0.29);
+  transform: translateY(-0.13rem);
 }
 
 .card--calculator:hover {
-  box-shadow: 0 12px 20px hsla(212, 86%, 64%, 0.3);
-  transform: translateY(-2px);
+  box-shadow: 0 0.8rem 1.33rem hsla(212, 86%, 64%, 0.3);
+  transform: translateY(-0.13rem);
 }
+
 .card--karma:hover {
-  box-shadow: 0 12px 20px hsla(34, 97%, 64%, 0.3);
-  transform: translateY(-2px);
+  box-shadow: 0 0.8rem 1.33rem hsla(34, 97%, 64%, 0.3);
+  transform: translateY(-0.13rem);
 }
 
-/* Card Description Paragraph */
-.card__description {
-  font-size: 14px;
+/* Card Container Sections for Grid Layout */
+.cards__center {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+/* ====================================
+   ## FOOTER
+   ==================================== */
+/* Attribution Text */
+.attribution {
+  text-align: center;
+  padding: 1rem 0;
+  margin-top: auto;
+  font-size: 0.87rem;
   color: var(--Grey-400);
-  max-width: 300px;
-  margin: 10px 0 20px 0;
+  font-weight: var(--font-weight-regular);
+  transition: color 0.3s ease-in-out;
 }
 
-/* Card Icon Positioning */
-.card__icon {
-  width: 56px;
-  display: block;
-  margin: 24px 0 20px auto;
+/* Attribution Links */
+.attribution a {
+  color: var(--Grey-400);
+  text-decoration: underline;
+  font-weight: var(--font-weight-semibold);
+}
+
+.attribution a:hover {
+  color: var(--Grey-500);
 }
 
 /* ====================================
    ## RESPONSIVE DESIGN
    ==================================== */
-
-/* Mobile First - Base styles (default) */
-
-/* Small Tablets */
-@media (min-width: 541px) and (max-width: 1023px) {
+/* Tablet and Desktop - 2x2 Grid Layout */
+@media (min-width: 768px) and (max-width: 1200px) {
   .container {
     padding: 2rem;
   }
+
+  /* Switch from Flex to Grid for 2x2 Layout */
+  .cards {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    justify-items: center;
+    align-items: start;
+    max-width: 60rem;
+    margin: 0 auto;
+  }
+
+  /* Grid Position - Top Left */
+  .cards__left {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  /* Grid Position - Right Side (spans 2 rows vertically) */
+  .cards__center {
+    grid-column: 2;
+    grid-row: 1 / span 2;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    align-self: center;
+  }
+
+  /* Grid Position - Bottom Left */
+  .cards__right {
+    grid-column: 1;
+    grid-row: 2;
+  }
+
+  /* Card Size Adjustments for Grid */
+  .card {
+    max-width: 21.875rem;
+    width: auto;
+    margin: 0;
+  }
 }
 
-/* Mobile */
+/* Mobile - Small Screen Adjustments */
 @media (max-width: 540px) {
   .container {
     padding: 1.7rem;
@@ -254,10 +293,11 @@ a:focus {
   }
 
   .header__description {
-    max-width: 300px;
+    max-width: 23.33rem;
+    width: 100%;
   }
 
   .attribution {
-    font-size: 11.8px;
+    font-size: 0.79rem;
   }
 }
