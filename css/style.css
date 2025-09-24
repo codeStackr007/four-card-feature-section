@@ -1,0 +1,262 @@
+/* ====================================
+   ## BASE STYLES
+   ==================================== */
+/* Normalize/Reset */
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+/* Base Document Styles */
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  line-height: 1.6;
+  font-family: var(--font-family-primary);
+  color: var(--Grey-500);
+  font-size: var(--font-size-base);
+  background-color: #f4f4f4;
+}
+
+/* Image Enhancements */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* ====================================
+   ## CUSTOM PROPERTIES
+   ==================================== */
+/* Color Palette Variables */
+:root {
+  /* Primary Colors */
+  --Red: hsl(0, 78%, 62%);
+  --Cyan: hsl(180, 62%, 55%);
+  --Orange: hsl(34, 97%, 64%);
+  --Blue: hsl(212, 86%, 64%);
+
+  /* Neutral Colors */
+  --Grey-500: hsl(234, 12%, 34%);
+  --Grey-400: hsl(212, 6%, 44%);
+  --White: hsl(0, 0%, 100%);
+
+  /* Typography Variables */
+  --font-family-primary: "Poppins", sans-serif;
+  --font-weight-normal: 200;
+  --font-weight-regular: 400;
+  --font-weight-semibold: 600;
+  --font-size-base: 15px;
+}
+
+/* ====================================
+   ## UTILITIES
+   ==================================== */
+/* Global Layout Container */
+.container {
+  margin: 0 auto;
+  padding: 4rem;
+  flex: 1;
+}
+
+/* ====================================
+   ## ACCESSIBILITY
+   ==================================== */
+/* Text Selection */
+::selection {
+  background-color: var(--Grey-400);
+  color: white;
+}
+
+::-moz-selection {
+  background-color: var(--Grey-400);
+  color: white;
+}
+
+/* Focus Management */
+*:focus {
+  outline: none;
+}
+
+/* Focus State for Links */
+a:focus {
+  outline: 2px solid var(--Grey-500);
+  border-radius: 3px;
+}
+
+/* ====================================
+   ## FOOTER
+   ==================================== */
+/* Attribution Text */
+.attribution {
+  text-align: center;
+  padding: 1rem 0;
+  margin-top: auto;
+  font-size: 13px;
+  color: var(--Grey-400);
+  font-weight: var(--font-weight-regular);
+  transition: color 0.3s ease-in-out;
+}
+
+/* Attribution Links */
+.attribution a {
+  color: var(--Grey-400);
+  text-decoration: underline;
+  font-weight: var(--font-weight-semibold);
+}
+
+.attribution a:hover {
+  color: var(--Grey-500);
+}
+
+/* ====================================
+   ## PAGE CONTENT
+   ==================================== */
+/* Hero/Header Section */
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 4rem;
+}
+
+/* Main Heading Styles */
+.header__title,
+.header__subtitle {
+  font-size: 1.7rem;
+}
+
+.header__title {
+  font-weight: var(--font-weight-normal);
+}
+
+.header__subtitle {
+  font-weight: var(--font-weight-semibold);
+  margin-bottom: 10px;
+}
+
+/* Header Description Paragraph */
+.header__description {
+  color: var(--Grey-500);
+  max-width: 500px;
+  text-align: center;
+  font-weight: var(--font-weight-regular);
+}
+
+/* Card Grid Layout */
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Individual Card Component */
+.card {
+  max-width: 21.875rem;
+  height: auto;
+  width: 100%;
+  background-color: var(--White);
+  border-radius: 0.3125rem;
+  padding: 2rem;
+  box-shadow: 0 0.92rem 1.2rem rgba(151, 174, 220, 0.2),
+    0 1.25rem 0.65rem rgba(151, 174, 220, 0.2);
+  cursor: pointer;
+  transition: box-shadow 0.3s ease, transform 0.3s ease-in-out;
+  position: relative;
+  overflow: hidden;
+}
+
+.cards__center {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+/* Individual Card Variations with borders */
+.card--supervisor {
+  border-top: 4px solid var(--Cyan);
+}
+
+.card--team-builder {
+  border-top: 4px solid var(--Red);
+}
+
+.card--calculator {
+  border-top: 4px solid var(--Blue);
+}
+
+.card--karma {
+  border-top: 4px solid var(--Orange);
+}
+
+/* Card Hover Effects */
+.card--supervisor:hover {
+  box-shadow: 0 12px 20px hsla(180, 62%, 55%, 0.3);
+  transform: translateY(-2px);
+}
+
+.card--team-builder:hover {
+  box-shadow: 0 12px 20px hsla(0, 78%, 62%, 0.29);
+  transform: translateY(-2px);
+}
+
+.card--calculator:hover {
+  box-shadow: 0 12px 20px hsla(212, 86%, 64%, 0.3);
+  transform: translateY(-2px);
+}
+.card--karma:hover {
+  box-shadow: 0 12px 20px hsla(34, 97%, 64%, 0.3);
+  transform: translateY(-2px);
+}
+
+/* Card Description Paragraph */
+.card__description {
+  font-size: 14px;
+  color: var(--Grey-400);
+  max-width: 300px;
+  margin: 10px 0 20px 0;
+}
+
+/* Card Icon Positioning */
+.card__icon {
+  width: 56px;
+  display: block;
+  margin: 24px 0 20px auto;
+}
+
+/* ====================================
+   ## RESPONSIVE DESIGN
+   ==================================== */
+
+/* Mobile First - Base styles (default) */
+
+/* Small Tablets */
+@media (min-width: 541px) and (max-width: 1023px) {
+  .container {
+    padding: 2rem;
+  }
+}
+
+/* Mobile */
+@media (max-width: 540px) {
+  .container {
+    padding: 1.7rem;
+  }
+
+  .header__title,
+  .header__subtitle {
+    font-size: 1.5rem;
+  }
+
+  .header__description {
+    max-width: 300px;
+  }
+
+  .attribution {
+    font-size: 11.8px;
+  }
+}
